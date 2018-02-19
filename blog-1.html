@@ -138,14 +138,14 @@
                                     
                                     <p>In computer science, a sorting algorithm is an algorithm that puts elements of a list in a certain order. The most-used orders are numerical order and lexicographical order.</p>
                                     <p>Insertion sort is one of the simplest ways of sorting a list of elements. The algorithm is based on the idea that the position of an element will be decided based on its appropriate position in a sorted array. Each element in an array is positioned in each iteration, thereby the complexity is O(n) with O(n2) comparisons.</p>
-                                    <b><a href="javascript:void(0)" id="sort" data-toggle="popover" data-placement="top" data-content="Click Here">Sort the bar</a></b>
+                                    <b><a href="javascript:void(0)" id="sort" data-toggle="popover" data-placement="top" data-content="Click Here">Sort the bar by values</a></b>
                                     <div class="barsec"></div>
                                     <p>The resultant array increases by one element in each iteration. If the current element is greater, then it leaves the element in its place and moves on to the next element else it finds its correct position in the sorted array and moves it to that position. This is done by shifting all the elements one by one, that are larger than the current element, in the sorted array to one position ahead.</p>
   
                                     <div class="post-title">
                                     <h2>Make it more awesome</h2> 
                                    </div>
-                                    <b><a href="javascript:void(0)" id="postsortbtn" data-toggle="popover" data-placement="top" data-content="Click Here">Sort the bar</a></b>
+                                    <b><a href="javascript:void(0)" id="postsortbtn" data-toggle="popover" data-placement="top" data-content="Click Here">Sort the bar by position</a></b>
                                     <div class="possort"></div>
                                     <p>It is simple, adaptive and stable yet less efficient as compared to Quick sort, Heap sort or Heap sort. </p>
                                 
@@ -341,7 +341,7 @@
                                       .style("background-color","teal")
                                       .style("margin-left","9px");
 
-                                      function sorted() {
+                                      function valsorted() {
                                         for(i = 0;i<dataset1.length;i++){
                                           for(j = i; j< dataset1.length;j++){
                                             if(dataset1[i] > dataset1[j]){
@@ -364,7 +364,7 @@
                                               }
                                       d3.selectAll("#sort")
                                       .on("click", function(){
-                                       sorted();
+                                       valsorted();
                                         });
                                       </script>
   <script type="text/javascript">
@@ -388,7 +388,7 @@
                     .attr("width",w*21)
                     .attr("height",h)
         //console.log("working till step1")
-        var bars=svg.selectAll("rect")
+        var bars1=svg.selectAll("rect")
                     .data(dataseta)
                     .enter()
                     .append("rect")
@@ -427,7 +427,7 @@
               }            
             }
             console.log(dataseta)
-            bars
+            bars1
               .transition()
               .delay(100)
               .duration(3000)
