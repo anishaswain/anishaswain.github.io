@@ -122,7 +122,7 @@
                                 
                                 <!-- Post Headline Start -->
                                 <div class="post-title">
-                                    <h1>Step by step solution to N-Queen proble</h1> 
+                                    <h1>Introduction to N-Queen problem</h1> 
                                    </div>
                                    <!-- Post Headline End -->
                                     
@@ -134,24 +134,27 @@
                                    <!-- Post Detail End -->
                                     
                                     
-                                    <p>We have come across the N Queen problem in many of the books</p>
+                                    <p>We have come across the N Queen problem in many of the books.</p>
 
-                                    <p>N Queen problem is more of a pedagogical concept, used to introduce backtracking depth-first search [DFS].  The algorithm, backtracking DFS can be used to solve a lot of other problems, like solving a maze, sudoku, etc.</p>
+                                    <p>N Queen problem is more of a pedagogical concept, used to introduce backtracking depth-first search [DFS]. The algorithm, backtracking DFS can be used to solve a lot of other problems, like solving a maze, sudoku, etc.</p>
 
-                                    <p>The N queens puzzle is the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal. The eight queens puzzle is an example of the more general n queens problem of placing n non-attacking queens on an n×n chessboard, for which solutions exist for all natural numbers n with the exception of n=2 and n=3. We have created a simple visualization game to demonstrate the problem.</p>
+                                    <p>The N queens puzzle is the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal. The eight queens puzzle is an example of the more general n queens problem of placing n non-attacking queens on an n×n chessboard, for which solutions exist for all natural numbers n with the exception of n=2 and n=3. We have created a simple visualization game to demonstrate the problem. In this case we have considered a 8×8 chessboard.</p>
 
-                                    <p><b>Game Rule:</b> In this case we have considered a 8×8 chessboard. In the game queens, queens get appended to chessboard on clicking. The path of two queens attacking each other turns red giving you a feel of danger zone and the queens should not be placed in the danger zone.
+                                    <p><b>Game Rule:</b>On click, Queens get added to the chessboard and again it gets removed by clicking on the same queen. Try to put 8 queens in such a manner so that no queen will attack each other. The path of two queens attacking each other turns red indicating the wrong assignment. Make sure the queens are not misplaced so that there will be no wrong assignment. 
+                                    
                                     </p>
                                     <!-- <b><a href="javascript:void(0)" id="sort" data-toggle="popover" data-placement="top" data-content="Click Here">Sort the bar by values</a></b> -->
                                     <div class="grid1">
                                       
                                     </div>
-                                    <p>TThe problem can be quite computationally expensive, as there are 4,426,165,368 possible arrangements of eight queens on an 8×8 board, but only 92 solutions. Again to give you an intuition about the solution  we have made some further changes. After each queen being appended the danzer zone will be highlighted and no other queen can be placed in the danger zone.
+                                    <p>Do not bother if you could not solve the puzzle. It is indeed difficult to solve the puzzle manually in a random manner. The problem can be quite computationally expensive, as there are 4,426,165,368 possible arrangements of eight queens on an 8×8 board, but only 92 solutions. Again to give you an intuition about the solution we have made some further changes. 
                                     </p>
+                                    <p><b>Game Rule:</b>As before, Queens get added to the chessboard on click and again it gets removed by clicking on the same queen. Try to put 8 queens in such a manner so that no queen will attack each other.  After each queen being added to the position, the wrong positions will be highlighted and no other queen can be placed in those positions.
                                     <div class="grid"></div>
-                                    <p>One of the solution of 8 Queen problem is backtracking DFS. The idea is to place queens one by one in different columns, starting from the leftmost column. When we place a queen in a column, we check for clashes with already placed queens. In the current column, if we find a row for which there is no clash, we mark this row and column as part of the solution. If we do not find such a row due to clashes then we backtrack and return false.
+                                    <p>If you were like most of the people, at first, you might have tried to add queens randomly. When there would have no place left on the chessboard to add more queens, you might have tried to replace the previous queens. This approach is actually the gist of backtracking algorithm. The idea of this algorithm is to place queens one by one in different columns, starting from the leftmost column. We try to place the queen in a row in that column, where no other is attacking the current queen. If we do not find such a row due to clashes then we backtrack and return false i.e we try to replace the previous queens, in different columns.
                                     </p>
-                                    <p><b>Steps to solution:</b></p>
+                                    <h3><b>Solution using Backtracking Algorithm </b><i>(To Do)</i></h3>
+                                    <!-- <p><b>Steps to solution:</b></p>
                                     <ol>
                                       <li> Start in the leftmost column</li>
                                       <li> If all queens are placed</li>
@@ -170,7 +173,7 @@
                                       <li>If all rows have been tried and nothing worked, return false to trigger 
                                           backtracking.
                                       </li>  
-                                    </ol>
+                                    </ol> -->
                                   <!-- Post Author Bio Box Start -->
                                   <div class="about-author margin-top-70 margin-bottom-50">
                                     
@@ -433,11 +436,12 @@ class eightqueenboard1 {
     this.width1 = 500;
     this.cellWidth1 = 60;
     this.cellHeight1 = 60;
+    this.border=1;
     this.xLocation1 = function(i,j){
       return j*this.cellWidth1+110;
     }
     this.yLocation1 = function(i,j){
-      return i*this.cellHeight1;
+      return i*this.cellHeight1+11;
     }
     this.draw1();
   }
@@ -446,7 +450,17 @@ class eightqueenboard1 {
     this.grid1 = this.parent1
                 .append("svg")
                 .attr("width",this.height1)
-                .attr("height",this.width1);
+                .attr("height",this.width1)
+                
+    this.grid1.append('rect')
+              .attr("width",482)
+              .attr("height",482)
+              .attr("x",109)
+              .attr("y",10)
+              .attr("fill","#fff")
+              .attr("stroke","#685555")
+              .style('stroke-width','5');
+
     this.cells1 = [];
     this.queens1 = [];
     for(var i = 0; i < this.eq1.matrix1.length; i++){
@@ -469,8 +483,8 @@ class eightqueenboard1 {
                                     .attr('i',i)
                                     .attr('j',j)
                                     .style('fill','#fff')
-                                    .style('stroke','blue')
-                                    .style('stroke-width','4')
+                                    .style('stroke','#685555')
+                                    .style('stroke-width','2')
                                     .on('click',() => {this.eventHandler1(i,j)})}
         else{this.cells1[i][j] = this.grid1.append('rect')
                                     .attr('class','square')
@@ -480,9 +494,9 @@ class eightqueenboard1 {
                                     .attr('width',this.cellWidth1)
                                     .attr('i',i)
                                     .attr('j',j)
-                                    .style('fill','#000')
-                                    .style('stroke','blue')
-                                    .style('stroke-width','4')
+                                    .style('fill','#0000005e')
+                                    .style('stroke','#685555')
+                                    .style('stroke-width','2')
                                     .on('click',() => {this.eventHandler1(i,j)})}
       }
     }
@@ -503,9 +517,9 @@ class eightqueenboard1 {
   addQueen1(i,j){
     this.queen1 = this.queen1+1;
     this.queens1[i][j] = this.grid1.append("svg:image")
-              .attr("xlink:href", "./images/blog/crown.gif")
-              .attr("width", 50)
-              .attr("height", 50)
+              .attr("xlink:href", "./images/blog/crown.png")
+              .attr("width", 55)
+              .attr("height", 55)
               .attr("x", this.xLocation1(i,j)+5)
               .attr("y", this.yLocation1(i,j)+5)
               .on('click',() => {this.eventHandler1(i,j)})
@@ -529,7 +543,7 @@ class eightqueenboard1 {
            if(j%2 == i%2){
           this.cells1[i][j].style('fill','#fff');}
           else
-            this.cells1[i][j].style('fill','#000');
+            this.cells1[i][j].style('fill','#0000005e');
         }
       }
     }
@@ -661,7 +675,7 @@ class eightqueenboard {
       return j*this.cellWidth+110;
     }
     this.yLocation = function(i,j){
-      return i*this.cellHeight;
+      return i*this.cellHeight+11;
     }
     this.draw();
   }
@@ -671,6 +685,14 @@ class eightqueenboard {
                 .append("svg")
                 .attr("width",this.height)
                 .attr("height",this.width);
+    this.grid.append('rect')
+              .attr("width",482)
+              .attr("height",482)
+              .attr("x",109)
+              .attr("y",10)
+              .attr("fill","#fff")
+              .attr("stroke","#685555")
+              .style('stroke-width','5');
     this.cells = [];
     this.queens = [];
     for(var i = 0; i < this.eq.matrix.length; i++){
@@ -693,8 +715,8 @@ class eightqueenboard {
                                     .attr('i',i)
                                     .attr('j',j)
                                     .style('fill','#fff')
-                                    .style('stroke','blue')
-                                    .style('stroke-width','4')
+                                    .style('stroke','#685555')
+                                    .style('stroke-width','2')
                                     .on('click',() => {this.eventHandler(i,j)})}
         else{this.cells[i][j] = this.grid.append('rect')
                                     .attr('class','square')
@@ -704,9 +726,9 @@ class eightqueenboard {
                                     .attr('width',this.cellWidth)
                                     .attr('i',i)
                                     .attr('j',j)
-                                    .style('fill','#000')
-                                    .style('stroke','blue')
-                                    .style('stroke-width','4')
+                                    .style('fill','#0000005e')
+                                    .style('stroke','#685555')
+                                    .style('stroke-width','2')
                                     .on('click',() => {this.eventHandler(i,j)})}
       }
     }
@@ -732,7 +754,7 @@ class eightqueenboard {
   addQueen(i,j){
     this.queen = this.queen+1;
     this.queens[i][j] = this.grid.append("svg:image")
-              .attr("xlink:href", "./images/blog/crown.gif")
+              .attr("xlink:href", "./images/blog/crown.png")
               .attr("width", 50)
               .attr("height", 50)
               .attr("x", this.xLocation(i,j)+5)
@@ -756,7 +778,7 @@ class eightqueenboard {
            if(j%2 == i%2){
           this.cells[i][j].style('fill','#fff');}
           else
-            this.cells[i][j].style('fill','#000');
+            this.cells[i][j].style('fill','#0000005e');
         }
       }
     }
