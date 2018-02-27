@@ -144,13 +144,19 @@
                                     
                                     </p>
                                     <!-- <b><a href="javascript:void(0)" id="sort" data-toggle="popover" data-placement="top" data-content="Click Here">Sort the bar by values</a></b> -->
-                                    <div class="grid1">
-                                      
+                                    <div class="col-md-12">                    
+                                      <div class="grid1" style="display: inline-block"></div>
+                                      <button id="restart1" class="btn btn-success btn-lg" style="display: inline-block;margin-top: -120%;margin-left: 2%">Restart</button>   
+                                    </div>
                                     </div>
                                     <p>Do not bother if you could not solve the puzzle. It is indeed difficult to solve the puzzle manually in a random manner. The problem can be quite computationally expensive, as there are 4,426,165,368 possible arrangements of eight queens on an 8×8 board, but only 92 solutions. Again to give you an intuition about the solution we have made some further changes. 
                                     </p>
                                     <p><b>Game Rule:</b>As before, Queens get added to the chessboard on click and again it gets removed by clicking on the same queen. Try to put 8 queens in such a manner so that no queen will attack each other.  After each queen being added to the position, the wrong positions will be highlighted and no other queen can be placed in those positions.
-                                    <div class="grid"></div>
+                                    <div id="alertdiv"></div>    
+                                    <div class="col-md-12">                    
+                                      <div class="grid" style="display: inline-block"></div>
+                                      <button id="restart" class="btn btn-success btn-lg" style="display: inline-block;margin-top: -120%;margin-left: 2%">Restart</button>   
+                                    </div>
                                     <p>If you were like most of the people, at first, you might have tried to add queens randomly. When there would have no place left on the chessboard to add more queens, you might have tried to replace the previous queens. This approach is actually the gist of backtracking algorithm. The idea of this algorithm is to place queens one by one in different columns, starting from the leftmost column. We try to place the queen in a row in that column, where no other is attacking the current queen. If we do not find such a row due to clashes then we backtrack and return false i.e we try to replace the previous queens, in different columns.
                                     </p>
                                     <h3><b>Solution using Backtracking Algorithm </b><i>(To Do)</i></h3>
@@ -565,8 +571,17 @@ class eightqueenboard1 {
   }
   
 var eqb1 = new eightqueenboard1(d3.select('.grid1'))
-
-
+d3.select("#restart1")
+  .on("click",function() {
+    restarting1();
+    reassigning1();
+  })
+function restarting1() {
+  d3.select(".grid1").selectAll('svg').remove()
+  }
+function reassigning1() {
+  new eightqueenboard1(d3.select('.grid1'))
+  }
 
 
 class eightqueengrid {
@@ -737,14 +752,17 @@ class eightqueenboard {
   eventHandler(i,j){
     let conflicts = this.eq.getConflicts();
     if(this.eq.matrix[i][j] == 0 && conflicts[i][j]==0) {
+      d3.select("#alertbox").remove()
       this.addQueen(i,j);
       this.eq.addQueen(i,j);
       this.repaint();
     }
     else if(this.eq.matrix[i][j] == 0 && conflicts[i][j]==1){
-      alert("queen can not be placed");
+      d3.select("#alertdiv")
+        .html('<div id="alertbox" class="alert alert-danger" role="alert">Queen can not be appended here</div>')
     }
     else{
+      d3.select("#alertbox").remove()
       this.removeQueen(i,j);
       this.eq.removeQueen(i,j);
       this.repaint();
@@ -800,6 +818,18 @@ class eightqueenboard {
   }
   
 var eqb = new eightqueenboard(d3.select('.grid'))
+d3.select("#restart")
+  .on("click",function() {
+    restarting();
+    reassigning();
+  })
+function restarting() {
+  d3.select(".grid").selectAll('svg').remove()
+  }
+function reassigning() {
+  new eightqueenboard(d3.select('.grid'))
+  }
+
   </script>
     
    </body>
