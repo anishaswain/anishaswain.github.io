@@ -151,12 +151,18 @@
                                     </div>
                                     <p>Do not bother if you could not solve the puzzle. It is indeed difficult to solve the puzzle manually in a random manner. The problem can be quite computationally expensive, as there are 4,426,165,368 possible arrangements of eight queens on an 8×8 board, but only 92 solutions. Again to give you an intuition about the solution we have made some further changes. 
                                     </p>
+                                     <p>There are many ways of representing the state of queens on a chessboard. One of the most popular ways is to assign each state with a set of 8 numbers. The division below the chessboard represents the set of numbers. Each number represents the position of a queen for each column. The index of a number represents the column and the number itself represents the row for that column.
+									</p>
                                     <p><b>Game Rule:</b>As before, Queens get added to the chessboard on click and again it gets removed by clicking on the same queen. Try to put 8 queens in such a manner so that no queen will attack each other.  After each queen being added to the position, the wrong positions will be highlighted and no other queen can be placed in those positions.
+
+                                   
                                     <div id="alertdiv"></div>    
                                     <div class="col-md-12">                    
                                       <div class="grid" style="display: inline-block"></div>
                                       <button id="restart" class="btn btn-success btn-lg" style="display: inline-block;margin-top: -120%;margin-left: 2%">Restart</button>   
                                     </div>
+                                    <p>Even after this,the problem is quite difficult to be solved manually. One of the solution for the problem is <b style="font-size: 17px">"48157263"</b>. Try to apply this in the above puzzel and see if it works.
+
                                     <p>If you were like most of the people, at first, you might have tried to add queens randomly. When there would have no place left on the chessboard to add more queens, you might have tried to replace the previous queens. This approach is actually the gist of backtracking algorithm. The idea of this algorithm is to place queens one by one in different columns, starting from the leftmost column. We try to place the queen in a row in that column, where no other is attacking the current queen. If we do not find such a row due to clashes then we backtrack and return false i.e we try to replace the previous queens, in different columns.
                                     </p>
                                     <h3><b>Solution using Backtracking Algorithm </b><i>(To Do)</i></h3>
