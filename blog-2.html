@@ -420,7 +420,7 @@
       if(diff > i){i = diff;}
       let j = 0;
       if(i-diff > j){j = i-diff}
-      for(; i <= 7 && j <= 7; j++,i++){
+      for(; i <= 4 && j <= 4; j++,i++){
         if(this.matrix1[i][j] == 1){
           if(found){
             for(let x = found_i, y = found_j; x <= i; x++,y++){
@@ -484,8 +484,8 @@ class eightqueenboard1 {
       }
     }
 
-    for(let i = 0; i < this.eq1.matrix1.length; i++){
-      for(let j = 0; j < this.eq1.matrix1[i].length; j++){
+    for(let i = 0; i <8; i++){
+      for(let j = 0; j <8; j++){
         if(j%2== i%2){this.cells1[i][j] = this.grid1.append('rect')
                                     .attr('class','square')
                                     .attr('x',this.xLocation1(i,j))
