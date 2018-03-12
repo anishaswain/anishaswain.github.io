@@ -323,120 +323,120 @@
 		SyntaxHighlighter.all();
 	</script> -->
   <script type="text/javascript">
-    class eightqueengrid1 {
-  constructor(){
-    this.matrix1 = [
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0]
-      ];
-  }
-
-
-  addQueen1(x,y){
-    this.matrix1[x][y] = 1;
-  }
-  removeQueen1(x,y){
-    this.matrix1[x][y] = 0;
-  }
-  getConflicts1(){
-    var conflicts1 = [
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0]
-      ];
-    //Horizontal
-    for(let i = 0; i < 8; i++){
-      let found = false;
-      let found_i,found_j;
-      for(let j = 0; j < 8; j++){
-        if(this.matrix1[i][j] == 1){
-          if(found){
-            for(let y = found_j; y <= j; y++){
-              conflicts1[i][y] = 1;
-            }
-          }else{
-            found = true;
-            found_i = i;
-            found_j = j;
-          }
-        }
-      }
-    }
-
-    //Vertical
-    for(let j = 0; j < 8; j++){
-      let found = false;
-      let found_i,found_j;
-      for(let i = 0; i < 8; i++){
-        if(this.matrix1[i][j] == 1){
-          if(found){
-            for(let x = found_i; x <= i; x++){
-              conflicts1[x][j] = 1;
-            }
-          }else{
-            found = true;
-            found_i = i;
-            found_j = j;
-          }
-        }
-      }
-    }
-    //Diagonal right-top
-    for(let sum = 0; sum <=14; sum++){
-      let found = false;
-      let found_i,found_j;
-      for(let i = 0; i <= 7 && i <= sum; i++){
-        let j = sum-i;
-        if(this.matrix1[i][j] == 1){
-          if(found){
-            for(let x = found_i, y = found_j; x <= i; x++,y--){
-              conflicts1[x][y] = 1;
-            }
-          }else{
-            found = true;
-            found_i = i;
-            found_j = j;
-          }
-        }
-      }
-    }
-
-    //Diagonal left-bottom
-    for(let diff = -7; diff <=7; diff++){
-      let found = false;
-      let found_i,found_j;
-      let i = 0;
-      if(diff > i){i = diff;}
-      let j = 0;
-      if(i-diff > j){j = i-diff}
-      for(; i <= 4 && j <= 4; j++,i++){
-        if(this.matrix1[i][j] == 1){
-          if(found){
-            for(let x = found_i, y = found_j; x <= i; x++,y++){
-              conflicts1[x][y] = 1;
-            }
-          }else{
-            found = true;
-            found_i = i;
-            found_j = j;
-          }
-        }
-      }
-    }
-    return conflicts1;
-  }
-};
+ class eightqueengrid1 {
+   constructor(){
+     this.matrix1 = [
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0]
+       ];
+   }
+ 
+ 
+   addQueen1(x,y){
+     this.matrix1[x][y] = 1;
+   }
+   removeQueen1(x,y){
+     this.matrix1[x][y] = 0;
+   }
+   getConflicts1(){
+     var conflicts1 = [
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0]
+       ];
+     //Horizontal
+     for(let i = 0; i < 8; i++){
+       let found = false;
+       let found_i,found_j;
+       for(let j = 0; j < 8; j++){
+         if(this.matrix1[i][j] == 1){
+           if(found){
+             for(let y = found_j; y <= j; y++){
+               conflicts1[i][y] = 1;
+             }
+           }else{
+             found = true;
+             found_i = i;
+             found_j = j;
+           }
+         }
+       }
+     }
+ 
+     //Vertical
+     for(let j = 0; j < 8; j++){
+       let found = false;
+       let found_i,found_j;
+       for(let i = 0; i < 8; i++){
+         if(this.matrix1[i][j] == 1){
+           if(found){
+             for(let x = found_i; x <= i; x++){
+               conflicts1[x][j] = 1;
+             }
+           }else{
+             found = true;
+             found_i = i;
+             found_j = j;
+           }
+         }
+       }
+     }
+     //Diagonal right-top
+     for(let sum = 0; sum <=14; sum++){
+       let found = false;
+       let found_i,found_j;
+       for(let i = 0; i <= 7 && i <= sum; i++){
+         let j = sum-i;
+         if(this.matrix1[i][j] == 1){
+           if(found){
+             for(let x = found_i, y = found_j; x <= i; x++,y--){
+               conflicts1[x][y] = 1;
+             }
+           }else{
+             found = true;
+             found_i = i;
+             found_j = j;
+           }
+         }
+       }
+     }
+ 
+     //Diagonal left-bottom
+     for(let diff = -7; diff <=7; diff++){
+       let found = false;
+       let found_i,found_j;
+       let i = 0;
+       if(diff > i){i = diff;}
+       let j = 0;
+       if(i-diff > j){j = i-diff}
+       for(; i <= 7 && j <= 7; j++,i++){
+         if(this.matrix1[i][j] == 1){
+           if(found){
+             for(let x = found_i, y = found_j; x <= i; x++,y++){
+               conflicts1[x][y] = 1;
+             }
+           }else{
+             found = true;
+             found_i = i;
+             found_j = j;
+           }
+         }
+       }
+     }
+     return conflicts1;
+   }
+ };
 
 class eightqueenboard1 {
   constructor(parent1){
@@ -593,14 +593,14 @@ function reassigning1() {
 class eightqueengrid {
   constructor(){
     this.matrix = [
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0]
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0]
       ];
   }
 
@@ -613,14 +613,14 @@ class eightqueengrid {
   }
   getConflicts(){
     var conflicts = [
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0]
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0],
+         [0,0,0,0,0,0,0,0]
       ];
     //Horizontal
     for(let i = 0; i < 8; i++){
@@ -727,8 +727,8 @@ class eightqueenboard {
       }
     }
 
-    for(let i = 0; i < this.eq.matrix.length; i++){
-      for(let j = 0; j < this.eq.matrix[i].length; j++){
+    for(let i = 0; i < 8; i++){
+      for(let j = 0; j < 8; j++){
         if(j%2== i%2){this.cells[i][j] = this.grid.append('rect')
                                     .attr('class','square')
                                     .attr('x',this.xLocation(i,j))
