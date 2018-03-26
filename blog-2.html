@@ -1,877 +1,108 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>INTRODUCTION TO N-QUEEN PROBLEM AND ITS SOLUTIONS</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style type="text/css">
+	body {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+p {
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+}
+.slidecontainer {
+    width: 100%;
+}
 
-  <head>
-    
-    <!-- Meta Tag -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <!-- SEO -->
-    <meta name="description" content="150 words">
-    <meta name="author" content="uipasta">
-    <meta name="url" content="http://www.yourdomainname.com">
-    <meta name="copyright" content="company name">
-    <meta name="robots" content="index,follow">
-    
-    
-    <title>Anisha Swain</title>
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="images/favicon/apple-touch-icon.png">
-    
-    <!-- All CSS Plugins -->
-    <link rel="stylesheet" type="text/css" href="css/plugin.css">
-    
-    <!-- Main CSS Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    
-    <!-- Google Web Fonts  -->
-    <link rel="stylesheet" type="text/css" href="css/syntax/shCore.css">
-    <link rel="stylesheet" type="text/css" href="css/syntax/shThemeDefault.css">
-    
-    <script type="text/javascript" src="d3.js"></script>
-    <!-- <script type="text/javascript" src="./js/blog/8queen1.js"></script> -->
-    <!-- HTML5 shiv and Respond.js support IE8 or Older for HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-	   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-	   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
+.slider {
+    -webkit-appearance: none;
+    width: 20.5%;
+    height: 15px;
+    background: #000;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
 
-  </head>
+.slider:hover {
+    opacity: 2;
+}
 
- <body>
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
 
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+input#slide{
+	width: 77.5%;
+}
+</style>
+<body>
+		<div>
+			<h2>Chapter-6 (CONSTRAINT SATISFACTION PROBLEM)</h2>
+			<h3>INTRODUCTION TO N-QUEEN PROBLEM AND ITS SOLUTIONS</h3>
+		</div>
+		<p>Let’s play a simple puzzle game. Your task is to place two more Queens in of the given chessboard such that, there will no Queen attacking the others. </p>
+		<div id="grid1" style="margin-left:30%"></div>
+		<p>Solved it? Pretty simple, wasn’t it? The above problem already had 3 queens placed. Will you be able to place all the Queens from a start?<br><br>
+		Try to place “N” numbers of queens on an “N x N” chessboard so that none of the Queens attack each other. With every solution, you will be allowed to play the next level with the incremented number of “N”. Let's start with a 4x4 board. Give it a try.
+		</p>
+		<div id="grid2" class="col-md-12" style="margin-left:30%">
+			<div id="game" style="display: inline-block;" class="col-md-6"></div>
+			<button id="restart" style="display: inline-block;margin-left: 2%" class="col-md-2 btn btn-success">Restart</button>
+			<div id="slidebox" class="col-md-7">
+			  <input type="range" min="4" max="8" value="4" class="slider" id="slide">
+			  <div id="axis"></div>
+			</div>
 	
-     
-	 <!-- Preloader Start -->
-     <div class="preloader">
-	   <div class="rounder"></div>
-      </div>
-      <!-- Preloader End -->
-      
-      
-    
-    
-    <div id="main">
-        <div class="container">
-            <div class="row">
-            	
-               
-                 
-                 <!-- About Me (Left Sidebar) Start -->
-                 <!-- <div class="col-md-3"> -->
-                 <div class="col-md-3">
-                   <div class="about-fixed">
-                    
-                     <div class="my-pic">
-                        <img src="images/favicon/apple-touch-icon.png" alt="">
-                        <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
-                         <div id="menu" class="collapse">
-                           <ul class="menu-link">
-                               <li><a href="about.html">About</a></li>
-                               <li><a href="work.html">Work</a></li>
-                               <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                         </div>
-                        </div>
-                      
-                      
-                      
-                      <div class="my-detail">
-                      
-                        <div class="white-spacing">
-                            <h1>Anisha Swain</h1>
-                            <span>Tech Enthusiast, Open Source Contributor</span>
-                        </div> 
-                       
-                       <ul class="social-icon">
-                         <li><a href="https://www.facebook.com/anisha.swain.37" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                         <li><a href="https://twitter.com/anishaswain" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                         <li><a href="https://www.linkedin.com/in/anisha-swain-17071611a/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                         <li><a href="https://github.com/Anisha1234" target="_blank" class="github"><i class="fa fa-github"></i></a></li>
-                        </ul>
-
-                    </div>
-                  </div>
-                </div>
-                <!-- About Me (Left Sidebar) End -->
-                
-                
-                
-                
-                 
-                 <!-- Blog Post (Right Sidebar) Start -->
-                 <div class="col-md-9">
-                    <div class="col-md-12 page-body">
-                    	<div class="row">
-                    		
-                            
-                            <div class="sub-title">
-                           		<a href="index.html" title="Go to Home Page"><h2>Back Home</h2></a>
-                                <a href="contact.html" class="smoth-scroll"><i class="icon-bubbles"></i></a>
-                             </div>
-                            
-                            
-                            <div class="col-md-12 content-page">
-                              <div class="col-md-12 blog-post">
-                            	
-                                
-                                <!-- Post Headline Start -->
-                                <div class="post-title">
-                                    <h1>Introduction to N-Queen problem</h1> 
-                                   </div>
-                                   <!-- Post Headline End -->
-                                    
-                                    
-                                <!-- Post Detail Start -->
-                                <div class="post-info">
-                                    <span>February 20, 2018 / by <a href="#" target="_blank">Anisha Swain</a></span>
-                                </div>
-                                   <!-- Post Detail End -->
-                                    
-                                    
-                                    <p>We have come across the N Queen problem in many of the books.</p>
-
-                                    <p>N Queen problem is more of a pedagogical concept, used to introduce backtracking depth-first search [DFS]. The algorithm, backtracking DFS can be used to solve a lot of other problems, like solving a maze, sudoku, etc.</p>
-
-                                    <p>The N queens puzzle is the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal. The eight queens puzzle is an example of the more general n queens problem of placing n non-attacking queens on an n×n chessboard, for which solutions exist for all natural numbers n with the exception of n=2 and n=3. We have created a simple visualization game to demonstrate the problem. In this case we have considered a 8×8 chessboard.</p>
-
-                                    <p><b>Game Rule:</b>On click, Queens get added to the chessboard and again it gets removed by clicking on the same queen. Try to put 8 queens in such a manner so that no queen will attack each other. The path of two queens attacking each other turns red indicating the wrong assignment. Make sure the queens are not misplaced so that there will be no wrong assignment. 
-                                    
-                                    </p>
-                                    <!-- <b><a href="javascript:void(0)" id="sort" data-toggle="popover" data-placement="top" data-content="Click Here">Sort the bar by values</a></b> -->
-                                    <div class="col-md-12">                    
-                                      <div class="grid1" style="display: inline-block"></div>
-                                      <button id="restart1" class="btn btn-success btn-lg" style="display: inline-block;margin-top: -120%;margin-left: 2%">Restart</button>   
-                                    </div>
-                                    </div>
-                                    <p>Do not bother if you could not solve the puzzle. It is indeed difficult to solve the puzzle manually in a random manner. The problem can be quite computationally expensive, as there are 4,426,165,368 possible arrangements of eight queens on an 8×8 board, but only 92 solutions. Again to give you an intuition about the solution we have made some further changes. 
-                                    </p>
-                                     <p>There are many ways of representing the state of queens on a chessboard. One of the most popular ways is to assign each state with a set of 8 numbers. The division below the chessboard represents the set of numbers. Each number represents the position of a queen for each column. The index of a number represents the column and the number itself represents the row for that column.
-									</p>
-                                    <p><b>Game Rule:</b>As before, Queens get added to the chessboard on click and again it gets removed by clicking on the same queen. Try to put 8 queens in such a manner so that no queen will attack each other.  After each queen being added to the position, the wrong positions will be highlighted and no other queen can be placed in those positions.
-
-                                   
-                                    <div id="alertdiv"></div>    
-                                    <div class="col-md-12">                    
-                                      <div class="grid" style="display: inline-block"></div>
-                                      <button id="restart" class="btn btn-success btn-lg" style="display: inline-block;margin-top: -120%;margin-left: 2%">Restart</button>   
-                                    </div>
-                                    <p>Even after this,the problem is quite difficult to be solved manually. One of the solution for the problem is <b style="font-size: 17px">"48157263"</b>. Try to apply this in the above puzzel and see if it works.
-
-                                    <p>If you were like most of the people, at first, you might have tried to add queens randomly. When there would have no place left on the chessboard to add more queens, you might have tried to replace the previous queens. This approach is actually the gist of backtracking algorithm. The idea of this algorithm is to place queens one by one in different columns, starting from the leftmost column. We try to place the queen in a row in that column, where no other is attacking the current queen. If we do not find such a row due to clashes then we backtrack and return false i.e we try to replace the previous queens, in different columns.
-                                    </p>
-                                    <h3><b>Solution using Backtracking Algorithm </b><i>(To Do)</i></h3>
-                                    <!-- <p><b>Steps to solution:</b></p>
-                                    <ol>
-                                      <li> Start in the leftmost column</li>
-                                      <li> If all queens are placed</li>
-                                      <li>Try all rows in the current column.  Do following for every tried row.
-                                          <ol>
-                                            <li>If the queen can be placed safely in this row then mark this [row, 
-                                            column] as part of the solution and recursively check if placing  
-                                            queen here leads to a solution.</li>
-                                            <li>If placing queen in [row, column] leads to a solution then return 
-                                                          true.
-                                                  </li>
-                                            <li>If placing queen doesn't lead to a solution then umark this [row, 
-                                            column] (Backtrack) and go to step (a) to try other rows.</li>
-                                          </ol>
-                                      </li>
-                                      <li>If all rows have been tried and nothing worked, return false to trigger 
-                                          backtracking.
-                                      </li>  
-                                    </ol> -->
-                                  <!-- Post Author Bio Box Start -->
-                                  <div class="about-author margin-top-70 margin-bottom-50">
-                                    
-                                    <div class="picture">
-                                      <img src="images/favicon/apple-touch-icon.png" class="img-responsive" alt="">
-                                     </div>
-                                   
-                                    <div class="c-padding">
-                                       <h3>Article By <a href="#" target="_blank" data-toggle="tooltip" data-placement="top" title="Visit Alex Website">Anisha Swain</a></h3>
-                                       <p>Owner</p>
-                                      </div>
-                                    </div>
-                                    <!-- Post Author Bio Box End -->
-                                    
-                                    
-                                    
-                                    
-                                  <!-- You May Also Like Start -->
-                                  <div class="you-may-also-like margin-top-50 margin-bottom-50">
-                                    <h3>You may also like</h3>
-                                     <div class="row">
-                                 
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                      <a href="blog-1.html"><p>Visualization of sorting of array elements</p></a>
-                                     </div>
-                    
-                                    </div>
-                                  </div>
-                                  <!-- You May Also Like End -->
-          
-                                     <div id="disqus_thread"></div>
-              
-                                   </div>
-                                   <!-- Post Comment (Disqus) End -->
-                                  
-                                   
-
-                                </div>    
-                             </div>
-                              
-                         </div>
-                         
-                        
-                        
-                        <!-- Subscribe Form Start -->
-                        <div class="col-md-8 col-md-offset-2">
-                           <form id="mc-form" method="post" action="http://uipasta.us14.list-manage.com/subscribe/post?u=854825d502cdc101233c08a21&amp;id=86e84d44b7">
-								
-						  <!-- <div class="subscribe-form margin-top-20">
-							 <input id="mc-email" type="email" placeholder="Email Address" class="text-input">
-							  <button class="submit-btn" type="submit">Submit</button>
-								</div>
-                                <p>Subscribe to my weekly newsletter</p>
-								<label for="mc-email" class="mc-label"></label>
-							  </form>
-                             
-                           </div>
-                            
-                           
-                         </div> -->
-                     
-                     
-                       
-                       <!-- Footer Start -->
-                       <div class="col-md-12 page-body margin-top-50 footer">
-                          <footer>
-                          <ul class="menu-link">
-                               <li><a href="index.html">Home</a></li>
-                               <li><a href="about.html">About</a></li>
-                               <li><a href="work.html">Work</a></li>
-                               <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                            
-                          <p>© Copyright 2016 DevBlog. All rights reserved</p>
-						  
-						  
-						  <!-- UiPasta Credit Start -->
-                          <div class="uipasta-credit">Design By <a href="http://www.uipasta.com" target="_blank">Anisha</a></div>
-                          <!-- UiPasta Credit End -->
-						  
-                           
-                         </footer>
-                       </div>
-                       <!-- Footer End -->
-                     
-                     
-                  </div>
-                  <!-- Blog Post (Right Sidebar) End -->
-                
+		</div>
+        <p>Are you stuck at a point and it is killing your time? But a computer can solve such puzzles faster. So how does it do that? Let’s try to figure it out.</p>
+        <h3>Let’s dive deep into it…</h3>
+        <p>The problem stated above is otherwise known as the N Queen Problem, which is a useful test problem for search algorithms. That is why, we might consider trying different search algorithms like BFS, DFS, GA(Genetic Algorithms), Backtracking etc for searching its solution. So let’s dive deep into each of these to figure out the best problem-solving approach for this particular problem.
+        <br>
+        <br>
+        Talking about BFS first, in this approach queens will be placed in every position in each column to check whether it is a solution. Let’s see how it works in an intuitive manner.</p>
+        <div id="grid3" class="col-md-12" style="margin-left:20%">
+            <div id="grid4" style="width: 50%;display: inline-block;" class="col-md-8"></div>
+            <div style="width: 30%;display: inline-block;" id="buttons" class="col-md-3">
+                <br>
+                <br>
+                <button class="btn btn-success" id="restart"> Start Simulation</button>
+                <br>
+                <br>
+                <button class="btn btn-danger" id="stop">Stop Simulation</button>
+                <br>
+                <br>
+                <span id="act1">Total no of actions</span>
+                <br>
+                <input type="text" id="action" name="action" width="20%" value="12">
+                <br>
+                <br>
+                <span id="tim1">Total Time</span>
+                <br>
+                <input type="text" id="time" name="time" width="20%" value="12">
             </div>
-         </div>
-      </div>
-    
-    
-    
-     
-     <!-- Endpage Box (Popup When Scroll Down) Start -->
-     <div id="scroll-down-popup" class="endpage-box">
-       <h4>Read Also</h4>
-       <a href="blog-1.html">Visualization of sorting of array elements</a>
-      </div>
-      <!-- Endpage Box (Popup When Scroll Down) End -->
-      
-    
-    
-    
-    <!-- Back to Top Start -->
-    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
-    <!-- Back to Top End -->
-    
-    
-    <!-- All Javascript Plugins  -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/plugin.js"></script>
-    
-    <!-- Main Javascript File  -->
-    <script type="text/javascript" src="js/scripts.js"></script>
-    
-    <!-- Syntax Highlighter Javascript File  -->
-    <!-- <script type="text/javascript" src="js/syntax/shCore.js"></script>
-    <script type="text/javascript" src="js/syntax/shBrushCss.js"></script>
-    <script type="text/javascript" src="js/syntax/shBrushJScript.js"></script>
-    <script type="text/javascript" src="js/syntax/shBrushPerl.js"></script>
-    <script type="text/javascript" src="js/syntax/shBrushPhp.js"></script>
-    <script type="text/javascript" src="js/syntax/shBrushPlain.js"></script>
-    <script type="text/javascript" src="js/syntax/shBrushPython.js"></script>
-    <script type="text/javascript" src="js/syntax/shBrushRuby.js"></script>
-    <script type="text/javascript" src="js/syntax/shBrushSql.js"></script>
-    <script type="text/javascript" src="js/syntax/shBrushVb.js"></script>
-    <script type="text/javascript" src="js/syntax/shBrushXml.js"></script> -->
-    
-	<!-- Syntax Highlighter Call Function -->
-	<!-- <script type="text/javascript">
-		SyntaxHighlighter.config.clipboardSwf = 'js/syntax/clipboard.swf';
-		SyntaxHighlighter.all();
-	</script> -->
-  <script type="text/javascript">
- class eightqueengrid1 {
-   constructor(){
-     this.matrix1 = [
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0]
-       ];
-   }
- 
- 
-   addQueen1(x,y){
-     this.matrix1[x][y] = 1;
-   }
-   removeQueen1(x,y){
-     this.matrix1[x][y] = 0;
-   }
-   getConflicts1(){
-     var conflicts1 = [
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0]
-       ];
-     //Horizontal
-     for(let i = 0; i < 8; i++){
-       let found = false;
-       let found_i,found_j;
-       for(let j = 0; j < 8; j++){
-         if(this.matrix1[i][j] == 1){
-           if(found){
-             for(let y = found_j; y <= j; y++){
-               conflicts1[i][y] = 1;
-             }
-           }else{
-             found = true;
-             found_i = i;
-             found_j = j;
-           }
-         }
-       }
-     }
- 
-     //Vertical
-     for(let j = 0; j < 8; j++){
-       let found = false;
-       let found_i,found_j;
-       for(let i = 0; i < 8; i++){
-         if(this.matrix1[i][j] == 1){
-           if(found){
-             for(let x = found_i; x <= i; x++){
-               conflicts1[x][j] = 1;
-             }
-           }else{
-             found = true;
-             found_i = i;
-             found_j = j;
-           }
-         }
-       }
-     }
-     //Diagonal right-top
-     for(let sum = 0; sum <=14; sum++){
-       let found = false;
-       let found_i,found_j;
-       for(let i = 0; i <= 7 && i <= sum; i++){
-         let j = sum-i;
-         if(this.matrix1[i][j] == 1){
-           if(found){
-             for(let x = found_i, y = found_j; x <= i; x++,y--){
-               conflicts1[x][y] = 1;
-             }
-           }else{
-             found = true;
-             found_i = i;
-             found_j = j;
-           }
-         }
-       }
-     }
- 
-     //Diagonal left-bottom
-     for(let diff = -7; diff <=7; diff++){
-       let found = false;
-       let found_i,found_j;
-       let i = 0;
-       if(diff > i){i = diff;}
-       let j = 0;
-       if(i-diff > j){j = i-diff}
-       for(; i <= 7 && j <= 7; j++,i++){
-         if(this.matrix1[i][j] == 1){
-           if(found){
-             for(let x = found_i, y = found_j; x <= i; x++,y++){
-               conflicts1[x][y] = 1;
-             }
-           }else{
-             found = true;
-             found_i = i;
-             found_j = j;
-           }
-         }
-       }
-     }
-     return conflicts1;
-   }
- };
-
-class eightqueenboard1 {
-  constructor(parent1){
-    this.queen1= 0;
-    this.conflict1 = 0;
-    this.parent1 = parent1;
-    this.eq1 = new eightqueengrid1();
-    this.height1 = 600;
-    this.width1 = 500;
-    this.cellWidth1 = 60;
-    this.cellHeight1 = 60;
-    this.border=1;
-    this.xLocation1 = function(i,j){
-      return j*this.cellWidth1+110;
-    }
-    this.yLocation1 = function(i,j){
-      return i*this.cellHeight1+11;
-    }
-    this.draw1();
-  }
-
-  draw1(){
-    this.grid1 = this.parent1
-                .append("svg")
-                .attr("width",this.height1)
-                .attr("height",this.width1)
-                
-    this.grid1.append('rect')
-              .attr("width",482)
-              .attr("height",482)
-              .attr("x",109)
-              .attr("y",10)
-              .attr("fill","#fff")
-              .attr("stroke","#685555")
-              .style('stroke-width','5');
-
-    this.cells1 = [];
-    this.queens1 = [];
-    for(var i = 0; i < this.eq1.matrix1.length; i++){
-      this.cells1.push([]);
-      this.queens1.push([]);
-      for(var j = 0; j < this.eq1.matrix1[i].length; j++){
-        this.cells1[i].push(null);
-        this.queens1[i].push(null);
-      }
-    }
-
-    for(let i = 0; i <8; i++){
-      for(let j = 0; j <8; j++){
-        if(j%2== i%2){this.cells1[i][j] = this.grid1.append('rect')
-                                    .attr('class','square')
-                                    .attr('x',this.xLocation1(i,j))
-                                    .attr('y',this.yLocation1(i,j))
-                                    .attr('height',this.cellHeight1)
-                                    .attr('width',this.cellWidth1)
-                                    .attr('i',i)
-                                    .attr('j',j)
-                                    .style('fill','#fff')
-                                    .style('stroke','#685555')
-                                    .style('stroke-width','2')
-                                    .on('click',() => {this.eventHandler1(i,j)})}
-        else{this.cells1[i][j] = this.grid1.append('rect')
-                                    .attr('class','square')
-                                    .attr('x',this.xLocation1(i,j))
-                                    .attr('y',this.yLocation1(i,j))
-                                    .attr('height',this.cellHeight1)
-                                    .attr('width',this.cellWidth1)
-                                    .attr('i',i)
-                                    .attr('j',j)
-                                    .style('fill','#0000005e')
-                                    .style('stroke','#685555')
-                                    .style('stroke-width','2')
-                                    .on('click',() => {this.eventHandler1(i,j)})}
-      }
-    }
-  }
-
-  eventHandler1(i,j){
-    if(this.eq1.matrix1[i][j] == 0) {
-      this.addQueen1(i,j);
-      this.eq1.addQueen1(i,j);
-      this.repaint1();
-    }else{
-      this.removeQueen1(i,j);
-      this.eq1.removeQueen1(i,j);
-      this.repaint1();
-    }
-  }
-
-  addQueen1(i,j){
-    this.queen1 = this.queen1+1;
-    this.queens1[i][j] = this.grid1.append("svg:image")
-              .attr("xlink:href", "./images/blog/crown.png")
-              .attr("width", 55)
-              .attr("height", 55)
-              .attr("x", this.xLocation1(i,j)+5)
-              .attr("y", this.yLocation1(i,j)+5)
-              .on('click',() => {this.eventHandler1(i,j)})
-  }
-
-  removeQueen1(i,j){
-    this.queens1[i][j].remove();
-    this.queen1 = this.queen1 - 1;
-  }
-  repaint1(){
-    console.log("repaint called")
-    console.log(this.queen1)
-    console.log(this.conflict1)
-    let conflicts1 = this.eq1.getConflicts1();
-    //console.log("conflict length" + conflicts.length)
-    for(let i = 0; i < conflicts1.length;i++){
-      for(let j = 0; j < conflicts1[i].length; j++){
-        if(conflicts1[i][j]){
-          this.cells1[i][j].style('fill','#eb0000a8');
-        }else{
-           if(j%2 == i%2){
-          this.cells1[i][j].style('fill','#fff');}
-          else
-            this.cells1[i][j].style('fill','#0000005e');
-        }
-      }
-    }
-    if(this.queen1==8){
-      for(let i = 0; i < conflicts1.length;i++){
-        for(let j = 0; j < conflicts1[i].length; j++){
-          if (conflicts1[i][j]==0) {
-            this.conflict1 = this.conflict1+1;
-          }
-        }
-      }
-      if(this.conflict1==64){ 
-      alert("wow! congrats you places all queens successfully");
-        }
-      else
-        alert("You lost! try again")
-      }
-    }
-  }
-  
-var eqb1 = new eightqueenboard1(d3.select('.grid1'))
-d3.select("#restart1")
-  .on("click",function() {
-    restarting1();
-    reassigning1();
-  })
-function restarting1() {
-  d3.select(".grid1").selectAll('svg').remove()
-  }
-function reassigning1() {
-  new eightqueenboard1(d3.select('.grid1'))
-  }
-
-
-class eightqueengrid {
-  constructor(){
-    this.matrix = [
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0]
-      ];
-  }
-
-
-  addQueen(x,y){
-    this.matrix[x][y] = 1;
-  }
-  removeQueen(x,y){
-    this.matrix[x][y] = 0;
-  }
-  getConflicts(){
-    var conflicts = [
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0],
-         [0,0,0,0,0,0,0,0]
-      ];
-    //Horizontal
-    for(let i = 0; i < 8; i++){
-      for(let j = 0; j < 8; j++){
-        if(this.matrix[i][j] == 1){
-          for (var column = 0; column < 8; column++) {
-            conflicts[i][column]=1;
-          }
-          conflicts[i][j]=0;
-        }
-      }
-    }
-
-    //Vertical
-    for(let i = 0; i < 8; i++){
-      for(let j = 0; j < 8; j++){
-        if(this.matrix[i][j] == 1){
-          for (var row = 0; row < 8; row++) {
-            conflicts[row][j]=1;
-          }
-          conflicts[i][j]=0;
-        }
-      }
-    }
-    //Diagonal right-top
-    for(let i = 0; i < 8; i++){
-      for(let j = 0; j < 8; j++){
-        if(this.matrix[i][j] == 1){
-          let sum = i+j;
-          for (var row = 0; row < 8; row++) {
-              for (var column = 0; column < 8; column++) {
-                if(row+column==sum)
-                  conflicts[row][column]=1;
-              }
-            }
-          conflicts[i][j]=0;
-          }
-        }
-      }
-
-    //Diagonal left-bottom
-      for(let i = 0; i < 8; i++){
-      for(let j = 0; j < 8; j++){
-        if(this.matrix[i][j] == 1){
-          let diff = i-j;
-          for (var row = 0; row < 8; row++) {
-              for (var column = 0; column < 8; column++) {
-                if(row-column==diff)
-                  conflicts[row][column]=1;
-              }
-            }
-          conflicts[i][j]=0;
-          }
-        }
-      }
-
-    return conflicts;
-  }
-};
-
-class eightqueenboard {
-  constructor(parent){
-    this.queen= 0;
-    this.conflict = 0;
-    this.defeated = 0;
-    this.parent = parent;
-    this.eq = new eightqueengrid();
-    this.height = 600;
-    this.width = 500;
-    this.cellWidth = 60;
-    this.cellHeight = 60;
-    this.xLocation = function(i,j){
-      return j*this.cellWidth+110;
-    }
-    this.yLocation = function(i,j){
-      return i*this.cellHeight+11;
-    }
-    this.draw();
-  }
-
-  draw(){
-    this.grid = this.parent
-                .append("svg")
-                .attr("width",this.height)
-                .attr("height",this.width);
-    this.grid.append('rect')
-              .attr("width",482)
-              .attr("height",482)
-              .attr("x",109)
-              .attr("y",10)
-              .attr("fill","#fff")
-              .attr("stroke","#685555")
-              .style('stroke-width','5');
-    this.cells = [];
-    this.queens = [];
-    this.text = [];
-    for(var i = 0; i < this.eq.matrix.length; i++){
-      this.cells.push([]);
-      this.queens.push([]);
-      this.text.push([]);
-      for(var j = 0; j < this.eq.matrix[i].length; j++){
-        this.cells[i].push(null);
-        this.queens[i].push(null);
-      }
-    }
-
-    for(let i = 0; i < 8; i++){
-      for(let j = 0; j < 8; j++){
-        if(j%2== i%2){this.cells[i][j] = this.grid.append('rect')
-                                    .attr('class','square')
-                                    .attr('x',this.xLocation(i,j))
-                                    .attr('y',this.yLocation(i,j))
-                                    .attr('height',this.cellHeight)
-                                    .attr('width',this.cellWidth)
-                                    .attr('i',i)
-                                    .attr('j',j)
-                                    .style('fill','#fff')
-                                    .style('stroke','#685555')
-                                    .style('stroke-width','2')
-                                    .on('click',() => {this.eventHandler(i,j)})}
-        else{this.cells[i][j] = this.grid.append('rect')
-                                    .attr('class','square')
-                                    .attr('x',this.xLocation(i,j))
-                                    .attr('y',this.yLocation(i,j))
-                                    .attr('height',this.cellHeight)
-                                    .attr('width',this.cellWidth)
-                                    .attr('i',i)
-                                    .attr('j',j)
-                                    .style('fill','#0000005e')
-                                    .style('stroke','#685555')
-                                    .style('stroke-width','2')
-                                    .on('click',() => {this.eventHandler(i,j)})}
-      }
-    }
-    this.tabel = this.parent
-                     .append("div")
-                     .append("svg")
-                     .attr("width",this.height)
-                     .attr("height",50)
-                     .attr('x',0)
-                     .attr('y',50);
-    for(let i = 0; i < this.eq.matrix.length; i++){
-    this.tabelrect =  this.tabel.append("rect")
-                .attr('height',50)
-                .attr('width',this.cellWidth)
-                .attr("fill","white")
-                .attr("stroke","#685555")
-                .attr('y',0)
-                .attr('x',i*60+110)
-                .style("stroke-width","5")
-                .style("fill","#2196f3")
-
-    }
-  }
-
-  eventHandler(i,j){
-    let conflicts = this.eq.getConflicts();
-    if(this.eq.matrix[i][j] == 0 && conflicts[i][j]==0) {
-      d3.select("#alertbox").remove()
-      this.addQueen(i,j);
-      this.eq.addQueen(i,j);
-      this.repaint();
-      this.text[i][j]=this.tabel.append("text")
-                    .text(function() {
-                        return i+1;
-                    })
-                    .attr('x',function() {
-                        return j*60+130;
-                    })
-                    .attr('y',35)
-                    .style('fill',"white")
-                    .style("font-weight","bolder")
-                    .style("font-size","25px");
-      console.log(this.text)
-    
-    }
-    else if(this.eq.matrix[i][j] == 0 && conflicts[i][j]==1){
-      d3.select("#alertdiv")
-        .html('<div id="alertbox" class="alert alert-danger" role="alert">Queen can not be appended here</div>')
-    }
-    else{
-      d3.select("#alertbox").remove()
-      this.removeQueen(i,j);
-      this.eq.removeQueen(i,j);
-      this.repaint();
-      this.text[i][j].remove();
-    }
-  }
-
-  addQueen(i,j){
-    this.queen = this.queen+1;
-    this.queens[i][j] = this.grid.append("svg:image")
-              .attr("xlink:href", "./images/blog/crown.png")
-              .attr("width", 50)
-              .attr("height", 50)
-              .attr("x", this.xLocation(i,j)+5)
-              .attr("y", this.yLocation(i,j)+5)
-              .on('click',() => {this.eventHandler(i,j)})
-  }
-
-  removeQueen(i,j){
-    this.queens[i][j].remove();
-    this.queen = this.queen - 1;
-  }
-  repaint(){
-    console.log("repaint called")
-    let conflicts = this.eq.getConflicts();
-    console.log(conflicts)
-    for(let i = 0; i < conflicts.length;i++){
-      for(let j = 0; j < conflicts[i].length; j++){
-        if(conflicts[i][j]){
-          this.cells[i][j].style('fill','#eb0000a8');
-        }else{
-           if(j%2 == i%2){
-          this.cells[i][j].style('fill','#fff');}
-          else
-            this.cells[i][j].style('fill','#0000005e');
-        }
-      }
-    }
-    console.log("queen " +this.queen);
-    console.log("conflict " +this.conflict);
-    if(this.queen==8){
-      for(let i = 0; i < conflicts.length;i++){
-        for(let j = 0; j < conflicts[i].length; j++){
-          if (conflicts[i][j]==1) {
-            this.conflict = this.conflict+1;
-          }
-        }
-      }
-      if(this.conflict==56){ 
-          alert("wow! congrats you places all queens successfully");
-            }             
-      }
-    }
-  }
-  
-var eqb = new eightqueenboard(d3.select('.grid'))
-d3.select("#restart")
-  .on("click",function() {
-    restarting();
-    reassigning();
-  })
-function restarting() {
-  d3.select(".grid").selectAll('svg').remove()
-  }
-function reassigning() {
-  new eightqueenboard(d3.select('.grid'))
-  }
-
-  </script>
-    
-   </body>
- </html>
+            <div class="col-md-12" style="margin-left: 14%"><i>(Work in progress)</i></div>
+        </div>
+        <p>As you can see most of the arrangements are not even be close to being valid. Don’t you think this will lead to unnecessary wastage of time and will increase the time complexity exponentially? </p>
+</body>
+<script type="text/javascript" src="./js/d3.js"></script>
+<script type="text/javascript" src="./js/8queen1.js"></script>
+<script type="text/javascript" src="./js/8queen2.js"></script>
+<script type="text/javascript" src="./js/8queen3.js"></script>
+</html>
