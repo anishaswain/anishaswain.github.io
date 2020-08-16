@@ -451,10 +451,9 @@ pre {
 
 .container {
   width: 100%;
-  padding-right: 15px;
   padding-left: 15px;
-  margin-right: 150px;
-  margin-left: auto; }
+  margin-left: 120px;
+ }
   @media (min-width: 576px) {
     .container {
       max-width: 540px; } }
@@ -7304,7 +7303,7 @@ button.bg-dark:focus {
     padding-top: 3rem !important; }
   .pr-md-5,
   .px-md-5 {
-    padding-right: 3rem !important; }
+    padding-right: 4rem !important; }
   .pb-md-5,
   .py-md-5 {
     padding-bottom: 3rem !important; }
@@ -9298,3 +9297,4 @@ textarea.form-control {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } 
 }
+
