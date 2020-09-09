@@ -69,7 +69,8 @@ section{
     position: absolute;
     top: -100px;
     left: 10%;
-    color: #1dafed;
+    color: #666666;
+    font-size: 1rem;
   }
   
   .text h3{
@@ -158,14 +159,13 @@ section{
   }
   
   #details .button{
-    position: absolute;
-    width: 30%;
-    background-color: #01A2AC;
-    color: #F5F5F5;
+    border: 3px solid #1dafed;
+    border-radius: 25px;
+    padding: 8px 48px;
+    font-size: 1rem;
+    box-sizing: border-box;
     text-align: center;
-    left: 25px;
-    bottom: 35px;
-    padding: 15px;
+    transition: all 0.3s ease-in-out;
   }
   
   #details i{
@@ -266,3 +266,10 @@ section{
    }
  }
   
+ img#github {
+  float: right;
+}
+
+.projectImg{
+  height: 258.5px;
+}
