@@ -4642,8 +4642,7 @@ input[type="button"].btn-block {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
+  color: #000;  
   opacity: .5; }
   .close:hover {
     color: #000;
@@ -8727,7 +8726,7 @@ h1, h2, h3, h4, h5,
 
 .form-control {
   height: 52px !important;
-  background: #fff !important;
+  background: #363636 !important;
   color: #000000 !important;
   font-size: 18px;
   border-radius: 0px;
@@ -8999,9 +8998,12 @@ textarea.form-control {
   width: 100%; }
 
 .contact-section .contact-form {
-  width: 100%; }
+  width: 100%; 
+  background-color: #b3b3b321;
+}
 
 .block-9 .form-control {
+  border-radius: 20px;
   outline: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
@@ -9339,4 +9341,13 @@ p.interest em {
 
 .skillsImg{
   width: 50px;
+}
+
+.info.p-4 {
+  background-color: #b3b3b321;
+}
+
+.contactpara{
+  color: #fff;
+  overflow-wrap: break-word;
 }
