@@ -9351,3 +9351,12 @@ p.interest em {
   color: #fff;
   overflow-wrap: break-word;
 }
+
+@media (max-width: 768px) {
+  .intro.text.px-4.pt-5.pt-md-0.px-md-4.pr-md-5.ftco-animate.fadeInUp.ftco-animated{
+    margin-top: -260px;
+  }
+  p.introSubtext{
+    margin-top: 100px;
+  }
+}
