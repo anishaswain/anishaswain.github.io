@@ -12,20 +12,21 @@
 	padding: 10px 15px 15px;
 }
 .even-columns.center {
+  flex-wrap: wrap;
 	text-align: center;
 }
 .interest-icon {
 	width: 70px;
 	height: 70px;
 	margin: 5px auto;
-	border: 1.5px solid #e0dede;;
+	border: 1.5px solid #000;;
 	border-radius: 50%;
 }
 .interest-icon + p {
 	margin: 10px 0 -10px;
 }
 .interest-icon img {
-	width: 60%;
+	width: 40px;
 	margin: 15px 0 0;
 }
 #githubticon{
@@ -47,6 +48,7 @@ a{
 
 p em {
   font-size: 17px;
+  color: #fff;
 }
 
 a:hover{
@@ -390,4 +392,13 @@ a:hover{
   background-color: white;
   border-radius: 25px;
   box-shadow: 0 10px 15px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04);
+}
+
+a.githubLink {
+  padding-right: 5%;
+  border-right: 1px solid;
+}
+
+a.mediumLink {
+  padding-left: 5%;
 }

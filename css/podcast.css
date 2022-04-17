@@ -1,3 +1,7 @@
+.col-md-12.po {
+  border: 1px solid;
+}
+
 .circle {
     width: 26px;
     height: 26px;
@@ -355,7 +359,6 @@
 .post__card_-2 {
 	overflow: hidden;
 	border-radius: 0rem;
-	background-color: #fff;
 }
 
 .post__card__image-2 {
@@ -369,6 +372,7 @@
 }
 
 .post__card_meta-2 {
+  background-color: #000;
 	padding: 0.5em;
 }
 

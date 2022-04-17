@@ -5,14 +5,14 @@ body {
   --primary-color: #1dafed;
   --secondary-color: #e6eef9;
   font-family: "Inter", sans-serif;
-  background-color: rgba(230, 238, 249, 0.5);
+  background-color: #000;
 }
 section{
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vH;
-    background-color: #F5F5F5;
+    background-color: #000;
   }
   
   .container {
@@ -37,10 +37,9 @@ section{
     margin: 20px 1%;
     border-radius: 25px;
     border-bottom: 10px solid #1dafed;
-    min-width: 320px;
-    max-width: 30%;
-    width: 100%;
+    width:30%;
     text-align: center;
+    background-color: #1eafed;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04);
     box-sizing: border-box;
   }
@@ -53,6 +52,24 @@ section{
     transition: all 0.35s ease-in-out;
   }
   
+  .item h3, .item p{
+    color: #fff;
+  }
+
+  .item .button{
+    position: absolute;
+    bottom: -100px;
+    left: 25%;
+    width: 50%;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 25px;
+    padding: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+  }
+
   img {
     max-width: 100%;
     vertical-align: top;
@@ -73,10 +90,6 @@ section{
     font-size: 1rem;
   }
   
-  .text h3{
-    color: black;
-  }
-  
   .item:hover .text{
     top: 20%;
   }
@@ -85,22 +98,9 @@ section{
     bottom: 20%;
   }
   
-  .item .button{
-    position: absolute;
-    bottom: -100px;
-    left: 25%;
-    width: 50%;
-    border: 3px solid #1dafed;
-    border-radius: 25px;
-    padding: 6px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    transition: all 0.3s ease-in-out;
-  }
-  
   .button:hover{
-    background-color: #1dafed;
-    color: #F5F5F5;
+    background-color: #fff;
+    color: #1dafed;
   }
 
   
@@ -147,6 +147,7 @@ section{
     height: 264px;
     box-sizing: border-box;
     border-top: 1px solid #363638;
+    background-color: #000;
   }
   
   #details *{
@@ -180,6 +181,8 @@ section{
   i:hover{
     cursor: pointer;
     opacity: 0.8;
+    background-color: #1eafed;
+    color: #fff;
   }
   
   /* Close Button */
@@ -222,6 +225,7 @@ section{
     border-radius: 99px;
     cursor: pointer;
     transition: color 0.15s ease-in;
+    color: #000;
  }
   .notification {
     display: flex;
@@ -272,4 +276,19 @@ section{
 
 .projectImg{
   height: 258.5px;
+}
+
+div#personal {
+  padding: 0 1% 0 1%;
+}
+
+@media (max-width: 768px) {  
+  .item {
+    width: 40%;
+  }
+}
+@media (max-width: 480px) {  
+  .item {
+    width: 80%;
+  }
 }

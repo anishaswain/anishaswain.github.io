@@ -1,5 +1,5 @@
 section {
-  background-color: #F5F5F5;
+  background-color: #000;
 }
 .HoverVideo__wrapper{
     margin: 0px auto;
@@ -8,6 +8,7 @@ section {
    }
   
   .HoverVideo__videoBox{
+    background-color: #000;
     min-height: 380px;
     border-radius: 20px;
     overflow: hidden;
@@ -18,7 +19,9 @@ section {
   }
        
   .HoverVideo__videoBox .video{
-    height: 200px;
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #0ebeff;
     object-fit: cover;
   }
   

@@ -58,7 +58,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #dee2e6;
   text-align: left;
   background-color: #fff; }
 
@@ -73,7 +73,9 @@ hr {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5rem;
+  color: white;
+}
 
 p {
   margin-top: 0;
@@ -307,7 +309,9 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-weight: 500;
-  line-height: 1.2; }
+  line-height: 1.2;
+  color: #fff;
+}
 
 h1, .h1 {
   font-size: 2.5rem; }
@@ -451,21 +455,28 @@ pre {
 
 .container {
   width: 100%;
-  padding-left: 15px;
-  margin-left: 120px;
+  padding-left: 5%;
  }
-  @media (min-width: 576px) {
+  /* @media (min-width: 576px) {
     .container {
-      max-width: 540px; } }
-  @media (min-width: 768px) {
+      max-width: 540px; } } */
+  @media (max-width: 768px) {  
+    .resume-cont.px-md-5.py-5 {
+      width: 100% !important;
+      padding: 10%;
+    }
+    .interest-cont.sidebar {
+      width: 100% !important;
+      margin: 3%;
+    }
+  }
+  /* @media (min-width: 992px) {
     .container {
-      max-width: 720px; } }
-  @media (min-width: 992px) {
+      max-width: 960px; } } */
+  /* @media (min-width: 1200px) {
     .container {
-      max-width: 960px; } }
-  @media (min-width: 1200px) {
-    .container {
-      max-width: 1140px; } }
+      max-width: 1140px; }  */
+  }
 
 .container-fluid {
   width: 100%;
@@ -8140,7 +8151,9 @@ body {
   font-size: 15px;
   line-height: 1.8;
   font-weight: 400;
-  color: #666666; }
+  color: #dee2e6; 
+  background-color: #000;  
+}
   body.offcanvas {
     overflow-x: hidden; }
     body.offcanvas #colorlib-aside {
@@ -8174,7 +8187,7 @@ a {
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.8);
+  color: #fff;
   font-weight: normal;
   font-family: "Lora", Arial, serif; }
 
@@ -8188,7 +8201,7 @@ h1, h2, h3, h4, h5,
   padding-bottom: 40px;
   padding-left: 2em;
   padding-right: 2em;
-  width: 25%;
+  width: 20%;
   position: fixed;
   bottom: 0;
   top: 0;
@@ -8196,7 +8209,7 @@ h1, h2, h3, h4, h5,
   right: 0;
   overflow-y: hidden;
   z-index: 1001;
-  background: #fff;
+  background: #000;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
@@ -8205,7 +8218,7 @@ h1, h2, h3, h4, h5,
   border-right: 1px solid #e6e6e6; }
   @media (min-width: 992px) {
     #colorlib-aside {
-      width: 25%; } }
+      width: 20%; } }
   @media (max-width: 991.98px) {
     #colorlib-aside {
       width: 320px;
@@ -8253,7 +8266,7 @@ h1, h2, h3, h4, h5,
       font-size: 18px;
       font-weight: 500; }
       #colorlib-aside #colorlib-main-menu ul li a {
-        color: rgba(0, 0, 0, 0.7);
+        color: #fff;
         text-decoration: none;
         position: relative;
         padding: 10px 0;
@@ -8284,7 +8297,7 @@ h1, h2, h3, h4, h5,
           transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         #colorlib-aside #colorlib-main-menu ul li a:hover {
           text-decoration: none;
-          color: black; }
+          color: #fff; }
           #colorlib-aside #colorlib-main-menu ul li a:hover:after {
             visibility: visible;
             -webkit-transform: scaleX(1);
@@ -8372,7 +8385,7 @@ h1, h2, h3, h4, h5,
   transition: all 0.5s ease; }
   @media (min-width: 992px) {
     #colorlib-main {
-      width: 75%; } }
+      width: 80%; } }
 
 .colorlib-nav-toggle {
   cursor: pointer;
@@ -8483,7 +8496,7 @@ h1, h2, h3, h4, h5,
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 600;
   line-height: 1.2;
-  color: #000000; }
+  color: #fff; }
   .ftco-about .text h2 span {
     font-weight: 900;
     color: #1eafed; }
@@ -8546,7 +8559,7 @@ h1, h2, h3, h4, h5,
     z-index: 99; }
     .ftco-bread .breadcrumbs span {
       border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-      color: black; }
+      color: #000; }
       .ftco-bread .breadcrumbs span a {
         color: rgba(0, 0, 0, 0.5); }
   .ftco-bread .bread {
@@ -9074,7 +9087,7 @@ textarea.form-control {
         border-radius: 4px; }
         .comment-list li .comment-body .reply:hover {
           color: #fff;
-          background: black; }
+          background: #000; }
 
 .search-form {
   background: #fafafa;
@@ -9298,3 +9311,32 @@ textarea.form-control {
     stroke-dashoffset: -136px; } 
 }
 
+/* Own CSS */
+.resume-cont.px-md-5.py-5 {
+  width: 60%;
+}
+
+.interest-cont.sidebar {
+  width: 40%;
+  padding: 3%;
+}
+
+h3.sidebar-heading {
+  color: #000;
+}
+
+p em {
+  color: #000;
+}
+
+ul.achievement{
+  color: #000;
+}
+
+p.interest em {
+  color: #000 !important;
+}
+
+.skillsImg{
+  width: 50px;
+}

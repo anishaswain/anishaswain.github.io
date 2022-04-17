@@ -44,7 +44,7 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="about.html">About</a></li>
 					<li  class="colorlib-active"><a href="project.html">Projects</a></li>
-					<li><a href="blog.html">Blog</a></li>
+					<li><a href="https://medium.com/the-ui-girl">Blog</a></li>
 					<li><a href="conf.html">Conferences</a></li>
 					<li><a href="podcast.html">Podcast</a></li>
 					<li><a href="contact.html">Contact</a></li>
@@ -88,7 +88,7 @@
 						<span class="glider"></span>
 					</div>
 				</div>
-				<div class="container tabcontent" id="personal" style="display: block;">
+				<div class="container tabcontent" id="personal" style="display: flex;">
 					<div class="item" id="1">
 					  <img class="projectImg" src="./images/project/cleanclan.png" alt="">
 					  <div class="text">
@@ -358,7 +358,7 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(cityName).style.display = "flex";
   evt.currentTarget.className += " active";
 }
 </script>
