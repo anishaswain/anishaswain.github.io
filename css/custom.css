@@ -51,9 +51,13 @@ p em {
   color: #fff;
 }
 
-a:hover{
+li a:hover{
 	color: #1eafed;
-	font-size: 16px;
+	font-size: 19px;
+}
+
+#colorlib-aside #colorlib-logo a:hover{
+  font-size: 70px;
 }
 
 .form-row, .table, figure {
